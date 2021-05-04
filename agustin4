@@ -1,0 +1,39 @@
+void setup()//inicia el codigo
+{
+  pinMode(9, INPUT);//define el pin 9 como entrada
+  pinMode(8, INPUT);//define el pin 8 como entrada
+  pinMode(7, OUTPUT);//define el pin 7 como salida 
+  pinMode(6, OUTPUT);//define el pin 6 como salida 
+}
+
+void loop()//ponemos comandos a ejecutar
+{
+  if (digitalRead(9) == HIGH) {/*son sentencias de comparacion
+   * lee el valor de un pin digital 9
+   * define a algo como encendido
+   */
+    if (digitalRead(8) == HIGH) {/*son sentencias de comparacion
+   * lee el valor de un pin digital
+   * define a algo como encendido
+   */
+      digitalWrite(7, HIGH);/*son sentencias de comparacion
+   * lee el valor de un pin digital
+   * define a algo como encendido
+   */
+      tone(6, 57079043007393, 10000); // play tone 500 (G#41 = 57079043007393 Hz)//define el tono del parlante
+    } else {//si no se cumple lo anterior, se cumple lo siguiente 
+      digitalWrite(7, LOW);/*son sentencias de comparacion
+   * lee el valor de un pin digital
+   * define a algo como apagado
+   */
+      noTone(6);//define un tono
+    }
+  } else {//sino
+    digitalWrite(7, LOW);/*son sentencias de comparacion
+   * lee el valor de un pin digital
+   * define a algo como apagado
+   */
+    noTone(6);//define un tono
+  }
+  delay(10); // Delay a little bit to improve simulation performance//espera 10 segundos
+}
